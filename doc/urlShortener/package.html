@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>urlShortener - urlShortener</title>
+          <meta name="description" content="urlShortener - urlShortener" />
+          <meta name="keywords" content="urlShortener urlShortener" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../index.html';
+            var hash = 'urlShortener.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../lib/package_big.png" />
+        
+        <h1>urlShortener</h1>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">urlShortener</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="urlShortener.HashUrl" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="HashUrlextendsProductwithSerializable"></a>
+      <a id="HashUrl:HashUrl"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="HashUrl.html"><span class="name">HashUrl</span></a><span class="params">(<span name="url">url: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="urlShortener.StatsForHash" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="StatsForHashextendsProductwithSerializable"></a>
+      <a id="StatsForHash:StatsForHash"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="StatsForHash.html"><span class="name">StatsForHash</span></a><span class="params">(<span name="hash">hash: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="urlShortener.UrlFromHash" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="UrlFromHashextendsProductwithSerializable"></a>
+      <a id="UrlFromHash:UrlFromHash"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="UrlFromHash.html"><span class="name">UrlFromHash</span></a><span class="params">(<span name="hash">hash: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="urlShortener.UrlShortenTrait" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="UrlShortenTraitextendsAnyRef"></a>
+      <a id="UrlShortenTrait:UrlShortenTrait"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="UrlShortenTrait.html"><span class="name">UrlShortenTrait</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Interface for the Url shortening methods</p>
+    </li><li name="urlShortener.UrlValidationTrait" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="UrlValidationTraitextendsAnyRef"></a>
+      <a id="UrlValidationTrait:UrlValidationTrait"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="UrlValidationTrait.html"><span class="name">UrlValidationTrait</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">UrlValidation helper methods</p>
+    </li><li name="urlShortener.hashData" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="hashDataextendsAnyRef"></a>
+      <a id="hashData:hashData"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="hashData.html"><span class="name">hashData</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">hashData represents the url and clicks for a hash</p>
+    </li><li name="urlShortener.hashedUrlHelper" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="hashedUrlHelperextendsAnyRef"></a>
+      <a id="hashedUrlHelper:hashedUrlHelper"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="hashedUrlHelper.html"><span class="name">hashedUrlHelper</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Helper class for hashing URLs</p>
+    </li><li name="urlShortener.hashedUrlManagerTrait" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="hashedUrlManagerTraitextendsAnyRef"></a>
+      <a id="hashedUrlManagerTrait:hashedUrlManagerTrait"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="hashedUrlManagerTrait.html"><span class="name">hashedUrlManagerTrait</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Interface for the messages sent to hashedUrlManager</p>
+    </li><li name="urlShortener.urlShortenClient" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="urlShortenClientextendsUrlShortenTraitwithhashedUrlManagerTraitwithUrlValidationTrait"></a>
+      <a id="urlShortenClient:urlShortenClient"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="urlShortenClient.html"><span class="name">urlShortenClient</span></a><span class="result"> extends <a href="UrlShortenTrait.html" class="extype" name="urlShortener.UrlShortenTrait">UrlShortenTrait</a> with <a href="hashedUrlManagerTrait.html" class="extype" name="urlShortener.hashedUrlManagerTrait">hashedUrlManagerTrait</a> with <a href="UrlValidationTrait.html" class="extype" name="urlShortener.UrlValidationTrait">UrlValidationTrait</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Client that provides the implementation of the Url Shortener interface.</p>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="urlShortener.Main" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Main"></a>
+      <a id="Main:Main"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Main$.html"><span class="name">Main</span></a><span class="result"> extends <span class="extype" name="scala.Application">Application</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="urlShortener.hashedUrlHelper" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="hashedUrlHelper"></a>
+      <a id="hashedUrlHelper:hashedUrlHelper"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="hashedUrlHelper$.html"><span class="name">hashedUrlHelper</span></a>
+      </span>
+      </h4>
+      <p class="comment cmt">companion object so the alphabet isn't created per instance</p>
+    </li><li name="urlShortener.hashedUrlManager" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="hashedUrlManager"></a>
+      <a id="hashedUrlManager:hashedUrlManager"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="hashedUrlManager$.html"><span class="name">hashedUrlManager</span></a><span class="result"> extends <span class="extype" name="scala.actors.Actor">Actor</span> with <a href="hashedUrlManagerTrait.html" class="extype" name="urlShortener.hashedUrlManagerTrait">hashedUrlManagerTrait</a> with <a href="UrlValidationTrait.html" class="extype" name="urlShortener.UrlValidationTrait">UrlValidationTrait</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">An actor that manages the hashed URLs and their click counts</p>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+      <script defer="defer" type="text/javascript" id="jquery-js" src="../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../lib/template.js"></script>
+    </body>
+      </html>

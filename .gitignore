@@ -1,13 +1,26 @@
-*.class
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.orig
 *.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*.sass-cache
 
-# sbt specific
-dist/*
-target/
-lib_managed/
-src_managed/
-project/boot/
-project/plugins/project/
+# OS or Editor folders
+.DS_Store
+.cache
+.project
+.settings
+.tmproj
+.tags
+nbproject
+Thumbs.db
 
-# Scala-IDE specific
-.scala_dependencies
+# NPM packages folder.
+node_modules/
+
+bin/
