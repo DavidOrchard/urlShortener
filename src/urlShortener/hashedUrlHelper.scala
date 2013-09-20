@@ -96,23 +96,34 @@ class hashedUrlHelper {
    *  The generating of the first hash is not done in this function because the calling function locks
    *  the data store.
    *
-   *  @param hash String the hash generated for the url
    *  @param url String the url to hash
    *  @param Unit getUrlFunction the function to use for uniqueness determination
+   *  @param hd Object the object to insert for the found unique hash
    *
    *  @return String unique hash
    *
    */
-  def getUniqueHash(hash: String, url: String, getUrlFunction: (String) => Option[String]): String = {
+  def insertUniqueHash( url: String, getOrInsertFunction: (String, Object) => Option[String], hd: Object): String = {
 
-    var internalHash = hash
-    var urlForHash = getUrlFunction(hash)
+    var hash:String = hashUrl(url)
+    var urlForHash = getOrInsertFunction(hash, hd)
 
     while (urlForHash != None && urlForHash.get != url) {
-      internalHash = nextHashUrl(hash)
-      urlForHash = getUrlFunction(internalHash)
+      hash = nextHashUrl(hash)
+      urlForHash = getOrInsertFunction(hash, hd)
     }
-    internalHash
+    hash
+
+    /** An attempt at using for loop with generator, but conditional definitions don't seem possible
+     *  for( urlForHash <- getOrInsertFunction(hash, hd);
+          if urlForHash != None && urlForHash != url {
+            hash = nextHashUrl(hash)
+          };
+          if urlForHash == None
+          )
+        yield hash;
+     *
+     */
   }
 }
 

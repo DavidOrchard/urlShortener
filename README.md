@@ -46,13 +46,19 @@ Entity Relationship Diagram, interaction diagrams, class models, and other diagr
 
 ## Thread safety
 
-It is worth examining the thread safety of the operations.  The hashDatas structure is a mutable Map with the synchronized trait mixed so it is thread safe.
+It is worth examining the thread safety of the operations.  The hashDatas structure is a mutable Map with the synchronized trait mixed so 
+it is thread safe.  this.synchronized is used for synchronization.  Alternatively, some prefer a synchronization on a private object to prevent
+external locks (accidental or intentional) and potential deadlock.
 
 The methods and their hashData operations that operate on hashDatas are:
 
 ###hashUrl
 Reads then a write of a new hashData.  Potentially there could be an identical hash generated for a different url at the same time, 
-and the write of the 2nd hashdata overrides the first.  The hashedUrlManager.hashUrl has a this.synchronized around the read and the write.
+and the write of the 2nd hashdata overrides the first.  The current solution is to use a getOrElseUpdate with a new hashData 
+to make the operation threadsafe and have no need for a lock on the data store.  The downside is that a new instance of hashData is
+created for each request.  The alternative, previously implemented, is the hashedUrlManager.hashUrl has a this.synchronized around 
+the read and the write.  I believe that urlForHash requests are far more common that hashUrl requests, so removing a lock on the 
+hashDatas seems to be an appropriate optimization.
 
 ###urlForHash
 Read then a write of a + 1 count.  Potentially there could be interleaved urlForHash counts where the first thread gets the count, 
@@ -64,7 +70,7 @@ outside the lock.  This does complicate the code slightly but it optimizes for t
 Read only
 
 The methods of different types cannot interleave resulting in incorrect state.  For example, a hashUrl that hasn't written the hashData
-structure gets swapped with an urlForHash of the exact same just generated hash will return empty.  
+structure gets swapped with an urlForHash of the exact same just generated hash will return empty. 
 
 ## A few design notes
 

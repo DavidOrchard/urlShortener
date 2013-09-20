@@ -256,23 +256,6 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="urlShortener.hashedUrlHelper#getUniqueHash" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="getUniqueHash(hash:String,url:String,getUrlFunction:String=&gt;Option[String]):String"></a>
-      <a id="getUniqueHash(String,String,(String)⇒Option[String]):String"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">getUniqueHash</span><span class="params">(<span name="hash">hash: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="url">url: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="getUrlFunction">getUrlFunction: (<span class="extype" name="scala.Predef.String">String</span>) ⇒ <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Returns a unique hash for a url with no side-effects</p><div class="fullcomment"><div class="comment cmt"><p>Returns a unique hash for a url with no side-effects</p><p> In the common case, the function does a hash lookup, gets a None result, and returns the passed in hash
- If the passed in hash is an existing hash, then generate a new one by appending a random character in the
- base62 set until no existing has is found.</p><p> The generating of the first hash is not done in this function because the calling function locks
- the data store.
-</p></div><dl class="paramcmts block"><dt class="param">hash</dt><dd class="cmt"><p>String the hash generated for the url</p></dd><dt class="param">url</dt><dd class="cmt"><p>String the url to hash</p></dd><dt>returns</dt><dd class="cmt"><p>String unique hash</p></dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>
@@ -303,6 +286,24 @@
 </p></div><dl class="paramcmts block"><dt class="param">url</dt><dd class="cmt"><p>String the url (really any string) to be hashed
 </p></dd><dt>returns</dt><dd class="cmt"><p>the base62 encoded hash
 </p></dd></dl></div>
+    </li><li name="urlShortener.hashedUrlHelper#insertUniqueHash" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="insertUniqueHash(url:String,getOrInsertFunction:(String,Object)=&gt;Option[String],hd:Object):String"></a>
+      <a id="insertUniqueHash(String,(String,AnyRef)⇒Option[String],AnyRef):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">insertUniqueHash</span><span class="params">(<span name="url">url: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="getOrInsertFunction">getOrInsertFunction: (<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>) ⇒ <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="hd">hd: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns a unique hash for a url with no side-effects</p><div class="fullcomment"><div class="comment cmt"><p>Returns a unique hash for a url with no side-effects</p><p> In the common case, the function does a hash lookup, gets a None result, and returns the passed in hash
+ If the passed in hash is an existing hash, then generate a new one by appending a random character in the
+ base62 set until no existing has is found.</p><p> The generating of the first hash is not done in this function because the calling function locks
+ the data store.
+</p></div><dl class="paramcmts block"><dt class="param">url</dt><dd class="cmt"><p>String the url to hash</p></dd><dt class="param">hd</dt><dd class="cmt"><p>Object the object to insert for the found unique hash
+</p></dd><dt>returns</dt><dd class="cmt"><p>String unique hash</p></dd></dl></div>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <a id="isInstanceOf[T0]:Boolean"></a>

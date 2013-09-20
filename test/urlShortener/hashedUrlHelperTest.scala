@@ -28,11 +28,13 @@ class hashedUrlHelperTest extends FunSpec with GivenWhenThen {
   val testURL2 = "http://www.foo2.com"
   val testHash = "cu80Au"
   var hashDatas: collection.mutable.Map[String, String] = null
-  def getUrlForHash(hash: String): Option[String] = {
-    val hd = hashDatas.get(hash)
-    hd match {
-      case None    => None
-      case Some(x) => Some(x)
+  
+  def getUrlForHash(hash: String, newhd: Object): Option[String] = {
+    val hd = hashDatas.getOrElseUpdate(hash, newhd.asInstanceOf[String])
+    if(hd == newhd) {
+      None
+    } else {
+      Some(hd)
     }
   }
 
@@ -55,7 +57,7 @@ class hashedUrlHelperTest extends FunSpec with GivenWhenThen {
         hashDatas.put(testHash, testURL)
         Then("getUniqueHash with testURL" + testURL + " should return hash " + testHash)
         var hash = hd.hashUrl(testURL)
-        hash = hd.getUniqueHash(hash, testURL, getUrlForHash)
+        hash = hd.insertUniqueHash(testURL, getUrlForHash, testURL)
         assert(testHash === hash)
       }
     }
@@ -68,7 +70,7 @@ class hashedUrlHelperTest extends FunSpec with GivenWhenThen {
         hashDatas.put(testHash, testURL2)
         Then("getUniqueHash with testURL " + testURL + " should not return hash " + testHash)
         var hash = hd.hashUrl(testURL)
-        hash = hd.getUniqueHash(hash, testURL, getUrlForHash)
+        hash = hd.insertUniqueHash(testURL, getUrlForHash, testURL)
         assert(testHash !== hash)
         And(" it should be one longer")
         assert(hash.length === testHash.length + 1)
@@ -76,7 +78,7 @@ class hashedUrlHelperTest extends FunSpec with GivenWhenThen {
         hashDatas.put(hash, hash)
         Then("getUniqueHash should return a unique hash that is unique from " + testHash + " and " + hash)
         var hash2 = hd.hashUrl(testURL)
-        hash2 = hd.getUniqueHash(hash2, testURL, getUrlForHash)
+        hash2 = hd.insertUniqueHash(testURL, getUrlForHash, testURL)
         assert(hash2 !== hash)
         assert(hash2 !== testHash)
         And("it should be the same length or 1 longer than " + hash)

@@ -46,14 +46,16 @@ object hashedUrlManager extends Actor with hashedUrlManagerTrait with UrlValidat
   private var hashDatas = new HashMap[String, hashData] with SynchronizedMap[String, hashData]
 
   /** Return None or Some(url) for the hash
-   *
+   *  @param hash String the hash to lookup
+   *  @param newhd Object the new Object to put in the hashDatas for a hash that doesn't exist
    */
 
-  private def getUrlForHash(hash: String): Option[String] = {
-    val hd = hashDatas.get(hash)
-    hd match {
-      case None    => None
-      case Some(x) => Some(x.getUrl())
+  private def getUrlForHash(hash: String, newhd: Object): Option[String] = {
+    val hd = hashDatas.getOrElseUpdate(hash, newhd.asInstanceOf[hashData])
+    if(hd == newhd) {
+      None
+    } else {
+      Some(hd.getUrl())
     }
   }
 
@@ -81,14 +83,7 @@ object hashedUrlManager extends Actor with hashedUrlManagerTrait with UrlValidat
     val hd = new hashData(url)
     val helper = new hashedUrlHelper()
 
-    // Generate the hash out side the getUniqueHash to minimze the thread lock time
-    var hash = helper.hashUrl(url)
-
-    this.synchronized {
-      hash = helper.getUniqueHash(hash, url, getUrlForHash)
-      hashDatas.put(hash, hd)
-    }
-    hash
+    helper.insertUniqueHash(url, getUrlForHash, hd)
 
   }
 
